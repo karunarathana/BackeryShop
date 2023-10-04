@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "803410179175",
+    "project_id": "chunpan-f838f",
+    "storage_bucket": "chunpan-f838f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:803410179175:android:329adb6b78019e5080d0c2",
+        "android_client_info": {
+          "package_name": "com.example.backeryshop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAA5gxKa9lye5Xb8-Xu6YAE25nsf4JCzgE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
