@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.backeryshop.InterFaces.ShopOwner_Sign_up;
+
 public class SelectUser extends AppCompatActivity {
     Button customer;
 
@@ -22,10 +24,13 @@ public class SelectUser extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Register.class);
                 startActivity(intent);
-                finish();
             }
         });
 
 
+    }
+    public void showSign_inPage(View view){
+        Intent intent = new Intent(getApplicationContext(), ShopOwner_Sign_up.class);
+        startActivity(intent);
     }
 }

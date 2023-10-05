@@ -30,6 +30,7 @@
         android:backgroundTint="@color/lightRed"
         android:text="Backery"
         android:textSize="20dp"
+        android:onClick="showSign_inPage"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

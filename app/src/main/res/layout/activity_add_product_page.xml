@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InterFaces.Add_Product_Page">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="28dp"
+        android:text="Add Product"
+        android:textColor="@color/red"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:id="@+id/uploadImage"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/textView"
+        android:src="@drawable/camera"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/itemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:inputType="text"
+        android:textSize="24dp"
+        android:layout_below="@+id/uploadImage"
+        android:layout_centerHorizontal="true"
+        android:hint="Product Name"/>
+
+    <EditText
+        android:id="@+id/itemDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="24dp"
+        android:hint="Product Description"
+        android:gravity="start|top"
+        android:layout_marginTop="20dp"
+        android:inputType="textMultiLine"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/itemName"/>
+
+    <EditText
+        android:id="@+id/itemPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="24dp"
+        android:layout_marginTop="20dp"
+        android:hint="Product Price"
+        android:inputType="numberDecimal"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/itemDescription"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:padding="10dp"
+        android:layout_below="@id/itemPrice">
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/btn2"
+            android:text="Update"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Delete"
+            android:layout_centerVertical="true"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="10dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toEndOf="@+id/btn2"
+            android:text="Save"
+            android:onClick="saveData"
+            android:textSize="18dp" />
+
+    </RelativeLayout>
+
+    <SearchView
+        android:layout_width="300dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        />
+
+
+</RelativeLayout>
