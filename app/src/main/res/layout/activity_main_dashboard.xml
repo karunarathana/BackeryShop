@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="50sp"
+        android:layout_marginTop="50sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        >
+
+        <ImageView
+            android:id="@+id/select"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="240sp"
+            android:background="@drawable/select"
+            />
+
+        <ImageView
+            android:id="@+id/addtocart"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="20sp"
+            android:background="@drawable/cart"
+            />
+
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/search"
+            android:layout_gravity="end"
+            />
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/add"
+        android:layout_width="372dp"
+        android:layout_height="150dp"
+        android:background="@drawable/bakeryblog"
+        android:scaleType="fitXY"
+        android:layout_gravity="center_horizontal"
+        />
+
+        <TextView
+            android:id="@+id/recommended"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Recommended"
+            android:layout_marginEnd="150sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="22dp"
+            />
+
+        <TextView
+            android:id="@+id/seemore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="See more "
+            android:textColor="#FF0101"
+            android:textSize="20dp"
+            />
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="horizontal">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerView"
+                android:scrollbars="horizontal"
+                />
+
+        </LinearLayout>
+</LinearLayout>
