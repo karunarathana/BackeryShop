@@ -11,6 +11,7 @@ import com.example.backeryshop.R;
 
 public class Shop_Owner_Main_Dashboard extends AppCompatActivity {
     TextView companyEmail,companyName;
+    String cName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,7 @@ public class Shop_Owner_Main_Dashboard extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
 
-        String cName = extras.getString("V1");
+        cName = extras.getString("V1");
         String cEmail = extras.getString("V2");
 
         companyEmail = findViewById(R.id.companyEmail);
@@ -32,7 +33,12 @@ public class Shop_Owner_Main_Dashboard extends AppCompatActivity {
     }
 
     public void showProductPage(View view){
+
+        Bundle extras = new Bundle();
+        extras.putString("V1",cName);
+
         Intent intent = new Intent(getApplicationContext(), Add_Product_Page.class);
+        intent.putExtras(extras);
         startActivity(intent);
     }
 }

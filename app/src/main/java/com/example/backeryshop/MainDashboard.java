@@ -6,10 +6,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.backeryshop.ItemAdapter.FoodItemAdapter;
 import com.example.backeryshop.Model.ItemDetails;
+import com.example.backeryshop.Model.Testing;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +27,7 @@ public class MainDashboard extends AppCompatActivity {
     List<ItemDetails> datalist;
     DatabaseReference databaseReference;
     ValueEventListener valueEventListener;
+    FoodItemAdapter offerAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,38 +39,63 @@ public class MainDashboard extends AppCompatActivity {
         offerView.setLayoutManager(new LinearLayoutManager(MainDashboard.this,LinearLayoutManager.HORIZONTAL,false));
 
         datalist = new ArrayList<>();
-        FoodItemAdapter offerAdapter = new FoodItemAdapter(MainDashboard.this,datalist);
+        offerAdapter = new FoodItemAdapter(MainDashboard.this,datalist);
         offerView.setAdapter(offerAdapter);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("foodStore").child("ShanthaBeakry");
+        getShopName();
 
-        valueEventListener =databaseReference.addValueEventListener(new ValueEventListener() {
+    }
+    public void getShopName(){
+        List<String> shopName = new ArrayList<>();
+        databaseReference = FirebaseDatabase.getInstance().getReference("ShopOwner");
+        valueEventListener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    String shop = dataSnapshot.child("userCompanyName").getValue().toString();
+                    shopName.add(shop);
+                }
+                System.out.println(shopName);
 
-                String na =snapshot.getValue().toString();
-                datalist.clear();
-                for(DataSnapshot dataSnapshot:snapshot.getChildren()){
-                    String itemName = dataSnapshot.child("productName").getValue().toString();
-                    String imageUrl = dataSnapshot.child("imageURL").getValue().toString();
+                for(String i :shopName){
+                    databaseReference = FirebaseDatabase.getInstance().getReference("foodAllStore");
+                    valueEventListener =databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            datalist.clear();
+                            for(DataSnapshot dataSnapshot:snapshot.getChildren()){
+                                String itemName = dataSnapshot.child("productName").getValue().toString();
+                                String imageUrl = dataSnapshot.child("imageURL").getValue().toString();
+                                String description = dataSnapshot.child("productDescription").getValue().toString();
+                                String price = dataSnapshot.child("productPrice").getValue().toString();
+                                String sName = dataSnapshot.child("shopName").getValue().toString();
 
-                    //object Create itemDetails class
-                    ItemDetails offer =new ItemDetails();
+                                //object Create itemDetails class
+                                ItemDetails offer =new ItemDetails();
 
-                    offer.setItemName(itemName);
-                    offer.setDataImage(imageUrl);
-                    datalist.add(offer);
+                                offer.setItemName(itemName);
+                                offer.setDataImage(imageUrl);
+                                offer.setShopName(sName);
+                                offer.setProductDsc(description);
+                                offer.setItemPrice(price);
+                                datalist.add(offer);
+
+                            }
+                            offerAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            Toast.makeText(MainDashboard.this, "Error", Toast.LENGTH_SHORT).show();
+                        }
+                    });
 
                 }
-                offerAdapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(MainDashboard.this, "Error", Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
 }

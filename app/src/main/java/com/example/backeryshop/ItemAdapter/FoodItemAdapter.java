@@ -1,6 +1,7 @@
 package com.example.backeryshop.ItemAdapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.backeryshop.InterFaces.itemDetails;
 import com.example.backeryshop.Model.ItemDetails;
 import com.example.backeryshop.R;
 
@@ -39,16 +41,18 @@ public class FoodItemAdapter extends RecyclerView.Adapter<MyViewHolder> {
         Glide.with(context).load(datalist.get(position).getDataImage()).into(holder.recImage);
         holder.itemName.setText(datalist.get(position).getItemName());
 
-//        holder.recCard.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(context,Login.class);//methana ballna
-//                intent.putExtra("Image",list.get(holder.getAdapterPosition()).getDataImage());
-//                intent.putExtra("UserName",list.get(holder.getAdapterPosition()).getUserName());
-//
-//                context.startActivity(intent);
-//            }
-//        });
+        holder.recCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, itemDetails.class);//methana ballna
+                intent.putExtra("Image",datalist.get(holder.getAdapterPosition()).getDataImage());
+                intent.putExtra("itemName",datalist.get(holder.getAdapterPosition()).getItemName());
+                intent.putExtra("itemPrice",datalist.get(holder.getAdapterPosition()).getItemPrice());
+                intent.putExtra("shopName",datalist.get(holder.getAdapterPosition()).getShopName());
+                intent.putExtra("itemDescription",datalist.get(holder.getAdapterPosition()).getProductDsc());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -36,6 +36,18 @@
         android:textSize="24dp"
         android:layout_below="@+id/uploadImage"
         android:layout_centerHorizontal="true"
+        android:hint="Product ID"/>
+
+    <EditText
+        android:id="@+id/itemName1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:inputType="text"
+        android:textSize="24dp"
+        android:layout_below="@+id/itemName"
+        android:layout_centerHorizontal="true"
         android:hint="Product Name"/>
 
     <EditText
@@ -49,7 +61,7 @@
         android:layout_marginTop="20dp"
         android:inputType="textMultiLine"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/itemName"/>
+        android:layout_below="@id/itemName1"/>
 
     <EditText
         android:id="@+id/itemPrice"

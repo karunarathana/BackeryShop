@@ -6,6 +6,8 @@ public class ItemDetails {
     private String productDsc;
     private String dataImage;
 
+    private String shopName;
+
     public ItemDetails(String itemName, String itemPrice, String productDsc, String dataImage) {
         this.itemName = itemName;
         this.itemPrice = itemPrice;
@@ -15,6 +17,14 @@ public class ItemDetails {
 
     public void setItemName(String itemName) {
         this.itemName = itemName;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
+    }
+
+    public String getShopName() {
+        return shopName;
     }
 
     public void setItemPrice(String itemPrice) {

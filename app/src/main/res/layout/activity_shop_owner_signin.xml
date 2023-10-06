@@ -26,7 +26,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sign Up"
-                android:textSize="36sp"
+                android:textSize="30sp"
+                android:layout_marginTop="-10dp"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 android:textColor="@color/lightRed"/>
@@ -53,6 +54,19 @@
                 android:padding="8dp"
                 android:hint="Email"
                 android:drawableLeft="@drawable/baseline_person_24"
+                android:drawableTint="@color/lightRed"
+                android:drawablePadding="8dp"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/userTelNo"
+                android:background="@drawable/custom_edittext"
+                android:layout_marginTop="20dp"
+                android:padding="8dp"
+                android:hint="Phone Number"
+                android:drawableLeft="@drawable/baseline_settings_phone_24"
                 android:drawableTint="@color/lightRed"
                 android:drawablePadding="8dp"
                 android:textColor="@color/black"/>

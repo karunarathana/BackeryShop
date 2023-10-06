@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="200dp"
-    android:layout_height="wrap_content"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/recCard"
     android:layout_margin="10dp"
@@ -15,8 +15,8 @@
         android:orientation="vertical">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="150dp"
+            android:layout_height="105dp"
             android:layout_marginTop="10dp"
             android:id="@+id/recImage"
             android:padding="8dp"
@@ -30,10 +30,10 @@
             android:id="@+id/itemName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Bread"
+            android:text="කිබුලා බනිස්"
+            android:layout_gravity="center_horizontal"
             android:textStyle="bold"
-            android:textSize="25sp"/>
+            android:textSize="18sp"/>
 
 
     </LinearLayout>

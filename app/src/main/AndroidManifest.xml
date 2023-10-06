@@ -15,11 +15,21 @@
         android:theme="@style/Theme.BackeryShop"
         tools:targetApi="31">
         <activity
+            android:name=".InterFaces.itemDetails"
+            android:exported="false" />
+        <activity
+            android:name=".Model.Testing"
+            android:exported="false" /> <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
+        <activity
             android:name=".InterFaces.Add_Product_Page"
             android:exported="false" />
         <activity
             android:name=".InterFaces.Shop_Owner_Main_Dashboard"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".InterFaces.Shop_Login_InterFace"
             android:exported="false" />
@@ -28,7 +38,13 @@
             android:exported="false" />
         <activity
             android:name=".MainDashboard"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Register"
             android:exported="false" />
@@ -37,13 +53,11 @@
             android:exported="false" />
         <activity
             android:name=".SelectUser"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" /> <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
         <activity
             android:name=".SplashScreen"
             android:exported="false" />

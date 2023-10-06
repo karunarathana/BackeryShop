@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InterFaces.itemDetails">
+
+    <TextView
+        android:id="@+id/itemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:text="Item Name"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        />
+
+
+    <ImageView
+        android:id="@+id/itemImage"
+        android:layout_below="@+id/itemName"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:src="@drawable/upload"
+        android:layout_marginTop="30dp"
+        android:scaleType="fitCenter"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:id="@+id/itemDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemImage"
+        android:textSize="18dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:text="Description"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemDesc"
+        android:textSize="24dp"
+        android:text="Total:"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:layout_marginTop="180dp"
+        />
+    <TextView
+        android:id="@+id/itemTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemDesc"
+        android:textSize="24dp"
+        android:text="40.00"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="70dp"
+        android:textStyle="bold"
+        android:layout_marginTop="180dp"
+        />
+
+    <TextView
+        android:id="@+id/shopName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemDesc"
+        android:textSize="24dp"
+        android:text="Sahan"
+        android:layout_alignParentRight="true"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="180dp"
+        />
+    <RelativeLayout
+        android:layout_below="@+id/itemTotal"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="100dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add to Cart"
+            android:textSize="24dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

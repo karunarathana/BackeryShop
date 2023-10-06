@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,41 +7,43 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/navBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="50sp"
-        android:layout_marginTop="50sp"
+        android:layout_marginTop="20sp"
         android:layout_marginLeft="10sp"
         android:layout_marginRight="10sp"
+        android:layout_alignParentTop="true"
         >
 
         <ImageView
             android:id="@+id/select"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
             android:layout_marginEnd="240sp"
-            android:background="@drawable/select"
-            />
+            android:background="@drawable/select" />
 
         <ImageView
             android:id="@+id/addtocart"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginEnd="20sp"
-            android:background="@drawable/cart"
-            />
+            android:layout_marginEnd="20dp"
+            android:layout_toStartOf="@+id/search"
+            android:background="@drawable/cart" />
 
         <ImageView
             android:id="@+id/search"
             android:layout_width="40dp"
+            android:layout_alignParentRight="true"
             android:layout_height="40dp"
             android:background="@drawable/search"
             android:layout_gravity="end"
             />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
     <ImageView
@@ -50,8 +52,20 @@
         android:layout_height="150dp"
         android:background="@drawable/bakeryblog"
         android:scaleType="fitXY"
-        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/navBar"
+        android:layout_centerHorizontal="true"
         />
+
+
+    <RelativeLayout
+        android:id="@+id/section1"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/add">
 
         <TextView
             android:id="@+id/recommended"
@@ -59,8 +73,10 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="Recommended"
-            android:layout_marginEnd="150sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
             android:textStyle="bold"
+            android:layout_marginLeft="10dp"
             android:textColor="@color/black"
             android:textSize="22dp"
             />
@@ -69,19 +85,24 @@
             android:id="@+id/seemore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:text="See more "
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
             android:textColor="#FF0101"
             android:textSize="20dp"
             />
 
 
+    </RelativeLayout>
 
-
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/section2"
+            android:layout_below="@id/section1"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
@@ -90,5 +111,6 @@
                 android:scrollbars="horizontal"
                 />
 
-        </LinearLayout>
-</LinearLayout>
+        </RelativeLayout>
+
+</RelativeLayout>

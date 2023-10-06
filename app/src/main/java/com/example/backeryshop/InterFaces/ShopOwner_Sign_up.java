@@ -19,12 +19,13 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class ShopOwner_Sign_up extends AppCompatActivity {
 
-    EditText userEmail,userPassword,userConfirmPassword,userCompanyName;
+    EditText userEmail,userPassword,userConfirmPassword,userCompanyName,userTelNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_owner_signin);
 
+        userTelNumber = findViewById(R.id.userTelNo);
         userEmail = findViewById(R.id.useremail);
         userPassword = findViewById(R.id.userpassword);
         userConfirmPassword = findViewById(R.id.userconfirmpassword);
@@ -34,7 +35,7 @@ public class ShopOwner_Sign_up extends AppCompatActivity {
     public void SignUpUser(View view){
 
         //Please Correct This Logic
-
+        String userTelNum = userTelNumber.getText().toString();
         String userEmailAdd = userEmail.getText().toString();
         String companyName = userCompanyName.getText().toString();
         String password = userPassword.getText().toString();
@@ -44,14 +45,14 @@ public class ShopOwner_Sign_up extends AppCompatActivity {
             Toast.makeText(this, "Please Fill All Data", Toast.LENGTH_SHORT).show();
         }else{
            if(password.equals(confirmPassword)){
-               storageDatabase(userEmailAdd,companyName,password);
+               storageDatabase(userEmailAdd,companyName,password,userTelNum);
            }
         }
     }
 
-    private void storageDatabase(String userEmailAdd,String companyName,String password  ) {
+    private void storageDatabase(String userEmailAdd,String companyName,String password,String telNumber  ) {
 
-        Shop_Owner_Signup_Details shopOwnerSignupDetails = new Shop_Owner_Signup_Details(userEmailAdd,companyName,password);
+        Shop_Owner_Signup_Details shopOwnerSignupDetails = new Shop_Owner_Signup_Details(userEmailAdd,companyName,password,telNumber);
         FirebaseDatabase.getInstance().getReference("ShopOwner").child(companyName).setValue(shopOwnerSignupDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

@@ -5,10 +5,17 @@ public class Shop_Owner_Signup_Details {
     private String userCompanyName;
     private String userPassword;
 
-    public Shop_Owner_Signup_Details(String userEmailAdd, String userCompanyName, String userPassword) {
+    private String userTelNumber;
+
+    public Shop_Owner_Signup_Details(String userEmailAdd, String userCompanyName, String userPassword,String userTelNumber) {
         this.userEmailAdd = userEmailAdd;
         this.userCompanyName = userCompanyName;
         this.userPassword = userPassword;
+        this.userTelNumber = userTelNumber;
+    }
+
+    public String getUserTelNumber() {
+        return userTelNumber;
     }
 
     public String getUserEmailAdd() {
