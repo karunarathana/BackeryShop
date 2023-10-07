@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BackeryShop</string>
+    <string name="default_web_client_id" translatable="false">870584755116-b0h3tvsvq1ecv2e3ik078ig4kg3f3rpv.apps.googleusercontent.com</string>
 </resources>

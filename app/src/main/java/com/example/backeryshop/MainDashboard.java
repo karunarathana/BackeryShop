@@ -12,6 +12,10 @@ import android.widget.Toast;
 import com.example.backeryshop.ItemAdapter.FoodItemAdapter;
 import com.example.backeryshop.Model.ItemDetails;
 import com.example.backeryshop.Model.Testing;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,6 +32,9 @@ public class MainDashboard extends AppCompatActivity {
     DatabaseReference databaseReference;
     ValueEventListener valueEventListener;
     FoodItemAdapter offerAdapter;
+
+    GoogleSignInOptions gso;
+    GoogleSignInClient gsc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +48,14 @@ public class MainDashboard extends AppCompatActivity {
         datalist = new ArrayList<>();
         offerAdapter = new FoodItemAdapter(MainDashboard.this,datalist);
         offerView.setAdapter(offerAdapter);
+
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gsc = GoogleSignIn.getClient(this,gso);
+
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if(acct!=null){
+            String userName = acct.getDisplayName();
+        }
 
         getShopName();
 
