@@ -44,12 +44,14 @@ public class FoodItemAdapter extends RecyclerView.Adapter<MyViewHolder> {
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, itemDetails.class);//methana ballna
+                Intent intent = new Intent(context, itemDetails.class);
                 intent.putExtra("Image",datalist.get(holder.getAdapterPosition()).getDataImage());
                 intent.putExtra("itemName",datalist.get(holder.getAdapterPosition()).getItemName());
                 intent.putExtra("itemPrice",datalist.get(holder.getAdapterPosition()).getItemPrice());
                 intent.putExtra("shopName",datalist.get(holder.getAdapterPosition()).getShopName());
                 intent.putExtra("itemDescription",datalist.get(holder.getAdapterPosition()).getProductDsc());
+                intent.putExtra("itemCode",datalist.get(holder.getAdapterPosition()).getProductId());
+                intent.putExtra("userID",datalist.get(holder.getAdapterPosition()).getUserID());
                 context.startActivity(intent);
             }
         });

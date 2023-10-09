@@ -15,6 +15,15 @@
         android:theme="@style/Theme.BackeryShop"
         tools:targetApi="31">
         <activity
+            android:name=".InterFaces.Cart_Recycler_View"
+            android:exported="false" />
+<!--        <intent-filter>-->
+<!--            <action android:name="android.intent.action.MAIN" />-->
+
+<!--            <category android:name="android.intent.category.LAUNCHER" />-->
+<!--        </intent-filter>-->
+<!--    </activity>-->
+        <activity
             android:name=".InterFaces.User_Sign_Up"
             android:exported="false" />
         <activity

@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.backeryshop.InterFaces.Cart_Recycler_View;
 import com.example.backeryshop.ItemAdapter.FoodItemAdapter;
 import com.example.backeryshop.Model.ItemDetails;
 import com.example.backeryshop.Model.Testing;
@@ -35,6 +37,8 @@ public class MainDashboard extends AppCompatActivity {
 
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
+
+    String uPhoneNumber,UserID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +60,11 @@ public class MainDashboard extends AppCompatActivity {
         if(acct!=null){
             String userName = acct.getDisplayName();
         }
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+
+        uPhoneNumber = extras.getString("phone");
+        UserID = extras.getString("userID");
 
         getShopName();
 
@@ -70,7 +79,6 @@ public class MainDashboard extends AppCompatActivity {
                     String shop = dataSnapshot.child("userCompanyName").getValue().toString();
                     shopName.add(shop);
                 }
-                System.out.println(shopName);
 
                 for(String i :shopName){
                     databaseReference = FirebaseDatabase.getInstance().getReference("foodAllStore");
@@ -84,6 +92,7 @@ public class MainDashboard extends AppCompatActivity {
                                 String description = dataSnapshot.child("productDescription").getValue().toString();
                                 String price = dataSnapshot.child("productPrice").getValue().toString();
                                 String sName = dataSnapshot.child("shopName").getValue().toString();
+                                String productID = dataSnapshot.child("productId").getValue().toString();
 
                                 //object Create itemDetails class
                                 ItemDetails offer =new ItemDetails();
@@ -93,6 +102,10 @@ public class MainDashboard extends AppCompatActivity {
                                 offer.setShopName(sName);
                                 offer.setProductDsc(description);
                                 offer.setItemPrice(price);
+                                offer.setProductId(productID);
+                                offer.setuPhoneNumber(uPhoneNumber);
+                                offer.setUserID(UserID);
+
                                 datalist.add(offer);
 
                             }
@@ -112,5 +125,9 @@ public class MainDashboard extends AppCompatActivity {
                 Toast.makeText(MainDashboard.this, "Error", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    public  void  showCart(View view){
+        Intent intent = new Intent(getApplicationContext(), Cart_Recycler_View.class);
+        startActivity(intent);
     }
 }

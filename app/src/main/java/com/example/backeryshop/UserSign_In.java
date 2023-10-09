@@ -63,9 +63,16 @@ public class UserSign_In extends AppCompatActivity {
                         DataSnapshot dataSnapshot = task.getResult();
                         String uEmail = dataSnapshot.child("email").getValue().toString();
                         String uPassword = dataSnapshot.child("password").getValue().toString();
+                        String uPhone = dataSnapshot.child("phone").getValue().toString();
+                        String uID = dataSnapshot.child("userID").getValue().toString();
+
+                        Bundle extras = new Bundle();
+                        extras.putString("phone",uPhone);
+                        extras.putString("userID",uID);
 
                         if(uEmail.equals(userEmail) && uPassword.equals(uPassword1) ){
                             Intent intent = new Intent(getApplicationContext(),MainDashboard.class);
+                            intent.putExtras(extras);
                             startActivity(intent);
                         }
 
