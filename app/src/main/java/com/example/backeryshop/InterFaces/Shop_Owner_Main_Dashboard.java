@@ -41,4 +41,12 @@ public class Shop_Owner_Main_Dashboard extends AppCompatActivity {
         intent.putExtras(extras);
         startActivity(intent);
     }
+    public void showOrders(View view){
+//        Bundle extras = new Bundle();
+//        extras.putString("V1",cName);
+
+        Intent intent = new Intent(getApplicationContext(), Order_Recycler_View.class);
+//        intent.putExtras(extras);
+        startActivity(intent);
+    }
 }

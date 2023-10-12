@@ -1,11 +1,14 @@
 package com.example.backeryshop.ItemAdapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -13,7 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.backeryshop.Codes.Cart_Item_Details;
+import com.example.backeryshop.Codes.Order_Item_Details;
 import com.example.backeryshop.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -41,11 +49,46 @@ public class CartItemAdapter extends RecyclerView.Adapter<MyViewCart> {
         holder.shopName.setText(dataList.get(position).getCartItemShopName());
         holder.qty.setText(dataList.get(position).getCartItemQuantity());
 
+        holder.btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            String itemName = dataList.get(holder.getAdapterPosition()).getCartItemName();
+            String shopName =dataList.get(holder.getAdapterPosition()).getCartItemShopName();
+            String total =dataList.get(holder.getAdapterPosition()).getCartItemPrice();
+            String lat = "Test";
+            String lon = "Test";
+            String cusNumber = "+94714973507";
+            String cusAddress = "Kudawewa road Polpithigama";
+
+            saveData(itemName,shopName,total,lat,lon,cusNumber,cusAddress);
+            }
+        });
+
+
+
     }
 
     @Override
     public int getItemCount() {
         return dataList.size();
+    }
+
+    public void saveData(String obj1,String obj2,String obj3,String obj4,String obj5,String obj6,String obj7){
+
+        Order_Item_Details orderDetails = new Order_Item_Details("Sandeepa",obj1,obj3,obj5,obj4,obj6,obj7);
+        FirebaseDatabase.getInstance().getReference("OrderDetails").child(obj2).child("124578965").setValue(orderDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(context.getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(context.getApplicationContext(), "Hellow", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
 class MyViewCart extends RecyclerView.ViewHolder{
@@ -53,6 +96,7 @@ class MyViewCart extends RecyclerView.ViewHolder{
     ImageView recImage;
     TextView itemPrice,itemName,shopName,qty;
     CardView recCard;
+    Button btn;
     public MyViewCart(@NonNull View itemView) {
         super(itemView);
 
@@ -62,5 +106,7 @@ class MyViewCart extends RecyclerView.ViewHolder{
         shopName = itemView.findViewById(R.id.cartShopName);
         recImage = itemView.findViewById(R.id.cartRecImage);
         qty = itemView.findViewById(R.id.cartItemQty);
+        btn = itemView.findViewById(R.id.btn);
     }
+
 }

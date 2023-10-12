@@ -6,10 +6,10 @@
     android:id="@+id/recCard"
     app:cardCornerRadius="15dp"
     app:cardElevation="10dp"
-    android:layout_margin="10dp">
+    android:layout_margin="@dimen/_10sdp">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp">
+        android:layout_height="@dimen/_80sdp">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="60dp"
@@ -54,7 +54,7 @@
             android:layout_toRightOf="@+id/cartRecImage"
             android:text="Shopname"
             android:layout_marginLeft="100dp"
-            android:textSize="15dp"
+            android:textSize="@dimen/_10ssp"
 
             />
         <TextView
@@ -68,11 +68,14 @@
             android:layout_marginLeft="100dp"
             />
         <Button
+            android:id="@+id/btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/_10sdp"
             android:text="Buy"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true"
+            />
 
 
     </RelativeLayout>

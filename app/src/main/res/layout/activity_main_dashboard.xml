@@ -47,18 +47,45 @@
     </RelativeLayout>
 
 
-    <ImageView
+    <ViewFlipper
         android:id="@+id/add"
         android:layout_width="372dp"
         android:layout_height="150dp"
-        android:background="@drawable/bakeryblog"
-        android:scaleType="fitXY"
+        android:flipInterval="2000"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_below="@+id/navBar"
-        android:layout_centerHorizontal="true"
-        />
+        android:autoStart="true"
+        android:inAnimation="@android:anim/slide_in_left"
+        android:outAnimation="@android:anim/slide_out_right"
+        >
+        <ImageView
+            android:id="@+id/images"
+            android:scaleType="fitXY"
+            android:layout_width="372dp"
+            android:layout_height="150dp"
+            android:src="@drawable/photo1" />
+        <ImageView
+            android:id="@+id/images1"
+            android:scaleType="fitXY"
+            android:layout_width="372dp"
+            android:layout_height="150dp"
+            android:src="@drawable/phtot2" />
+        <ImageView
+            android:id="@+id/images2"
+            android:scaleType="fitXY"
+            android:layout_width="372dp"
+            android:layout_height="150dp"
+            android:src="@drawable/photo3" />
+        <ImageView
+            android:id="@+id/images3"
+            android:scaleType="fitXY"
+            android:layout_width="372dp"
+            android:layout_height="150dp"
+            android:src="@drawable/photo4"/>
+
+    </ViewFlipper>
 
 
     <RelativeLayout
@@ -103,7 +130,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="50dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
@@ -113,5 +140,71 @@
                 />
 
         </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="240dp"
+        android:layout_below="@id/section1"
+       >
+        <ImageView
+            android:id="@+id/user"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/user"
+            android:layout_marginRight="32dp"
+            />
+
+        <TextView
+            android:layout_below="@id/user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            />
+        <ImageView
+            android:id="@id/home"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/homebutton"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:layout_below="@id/home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            />
+        <ImageView
+            android:id="@+id/message"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="28dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/chatting"/>
+        <TextView
+            android:layout_below="@id/message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Message"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_marginLeft="10dp"
+            />
+
+    </RelativeLayout>
+
 
 </RelativeLayout>

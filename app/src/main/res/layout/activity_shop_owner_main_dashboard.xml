@@ -102,6 +102,7 @@
             android:layout_rowWeight="1"
             android:layout_row="1"
             android:layout_column="1"
+            android:onClick="showOrders"
            >
             <LinearLayout
                 android:layout_width="match_parent"
