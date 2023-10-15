@@ -58,15 +58,16 @@ public class itemDetails extends AppCompatActivity {
         uploadData();
     }
     public void uploadData(){
-        String shopName,productName,productPrice,imageUrl,productId,productQon,userID;
+        String shopName,productName,productPrice,imageUrl,productId,productQon,userID,itemStatus;
         shopName = itemData.get(0);
         productName = itemData.get(1);
         productPrice = itemData.get(2);
         imageUrl = itemData.get(3);
         productId= itemData.get(4);
         userID = itemData.get(5);
+        itemStatus ="Pending";
 
-        Upload_Item_Details_Cart userDetails = new Upload_Item_Details_Cart(shopName,productName,productPrice,imageUrl,productId,"2");
+        Upload_Item_Details_Cart userDetails = new Upload_Item_Details_Cart(shopName,productName,productPrice,imageUrl,productId,"2",itemStatus,userID );
         FirebaseDatabase.getInstance().getReference("CartDetails").child(userID).child(productId).setValue(userDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

@@ -54,6 +54,7 @@ public class Order_Recycler_View extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 dataList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
                     String address = dataSnapshot.child("customerAddress").getValue().toString();
                     String itemName = dataSnapshot.child("customerBuyItemName").getValue().toString() ;
                     String itemTotal =  dataSnapshot.child("customerBuyItemTotal").getValue().toString();
@@ -61,6 +62,9 @@ public class Order_Recycler_View extends AppCompatActivity {
                     String Long = dataSnapshot.child("customerLongitude").getValue().toString();
                     String name = dataSnapshot.child("customerName").getValue().toString();
                     String phoneNumber = dataSnapshot.child("customerPhoneNumber").getValue().toString();
+                    String userID = dataSnapshot.child("userID").getValue().toString();
+                    String productID = dataSnapshot.child("productId").getValue().toString();
+
 
                     Order_Item_Details orderItemDetails = new Order_Item_Details();
 
@@ -71,6 +75,8 @@ public class Order_Recycler_View extends AppCompatActivity {
                     orderItemDetails.setCustomerLongitude(Long);
                     orderItemDetails.setCustomerName(name);
                     orderItemDetails.setCustomerPhoneNumber(phoneNumber);
+                    orderItemDetails.setUserID(userID);
+                    orderItemDetails.setProductId(productID);
 
                     dataList.add(orderItemDetails);
 

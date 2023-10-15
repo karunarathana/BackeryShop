@@ -8,6 +8,22 @@ public class Cart_Item_Details {
     private String cartItemQuantity;
     private String cartItemShopName;
 
+    private String pID;
+    private String userID;
+    private String cartItemStatus;
+
+
+    public String getpID() {
+        return pID;
+    }
+
+    public String getCartItemStatus() {
+        return cartItemStatus;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
 
     public String getCartImageUrl() {
         return cartImageUrl;
@@ -56,6 +72,19 @@ public class Cart_Item_Details {
     public void setCartItemShopName(String cartItemShopName) {
         this.cartItemShopName = cartItemShopName;
     }
+
+    public void setpID(String pID) {
+        this.pID = pID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public void setCartItemStatus(String cartItemStatus) {
+        this.cartItemStatus = cartItemStatus;
+    }
+
     public Cart_Item_Details(){
 
     }

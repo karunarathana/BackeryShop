@@ -8,8 +8,10 @@ public class Order_Item_Details {
    private String customerLatitude;
    private String customerPhoneNumber;
    private String customerAddress;
+   private String productId;
+   private String userID;
 
-    public Order_Item_Details(String customerName, String customerBuyItemName, String customerBuyItemTotal, String customerLongitude, String customerLatitude, String customerPhoneNumber, String customerAddress) {
+    public Order_Item_Details(String customerName, String customerBuyItemName, String customerBuyItemTotal, String customerLongitude, String customerLatitude, String customerPhoneNumber, String customerAddress,String productId,String userID) {
         this.customerName = customerName;
         this.customerBuyItemName = customerBuyItemName;
         this.customerBuyItemTotal = customerBuyItemTotal;
@@ -17,10 +19,20 @@ public class Order_Item_Details {
         this.customerLatitude = customerLatitude;
         this.customerPhoneNumber = customerPhoneNumber;
         this.customerAddress = customerAddress;
+        this.productId = productId;
+        this.userID = userID;
     }
 
     public Order_Item_Details(){
 
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public String getUserID() {
+        return userID;
     }
 
     public String getCustomerName() {
@@ -78,5 +90,13 @@ public class Order_Item_Details {
 
     public void setCustomerAddress(String customerAddress) {
         this.customerAddress = customerAddress;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 }

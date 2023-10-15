@@ -64,6 +64,10 @@ public class Cart_Recycler_View extends AppCompatActivity {
                     String shopName = dataSnapshot.child("shopName").getValue().toString();
                     String imageUrl = dataSnapshot.child("imageURL").getValue().toString();
 
+                    String userID = dataSnapshot.child("userId").getValue().toString();
+                    String productID = dataSnapshot.child("productId").getValue().toString();
+                    String itemStatus = dataSnapshot.child("itemStatus").getValue().toString();
+
                     Cart_Item_Details cartItemDetails = new Cart_Item_Details();
 
                     cartItemDetails.setCartImageUrl(imageUrl);
@@ -71,6 +75,9 @@ public class Cart_Recycler_View extends AppCompatActivity {
                     cartItemDetails.setCartItemPrice(itemPrice);
                     cartItemDetails.setCartItemQuantity(qty);
                     cartItemDetails.setCartItemShopName(shopName);
+                    cartItemDetails.setpID(productID);
+                    cartItemDetails.setUserID(userID);
+                    cartItemDetails.setCartItemStatus(itemStatus);
 
                     dataList.add(cartItemDetails);
 

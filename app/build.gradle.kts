@@ -63,4 +63,8 @@ dependencies {
     //responsive implementaiton
     implementation ("com.intuit.ssp:ssp-android:1.1.0")
     implementation ("com.intuit.sdp:sdp-android:1.1.0")
+
+    //Google map implementation
+    implementation("com.google.android.gms:play-services-location:19.0.1")
+    implementation("com.karumi:dexter:4.2.0")
 }

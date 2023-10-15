@@ -1,6 +1,7 @@
 package com.example.backeryshop.ItemAdapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,6 +49,13 @@ public class CartItemAdapter extends RecyclerView.Adapter<MyViewCart> {
         holder.itemPrice.setText(dataList.get(position).getCartItemPrice());
         holder.shopName.setText(dataList.get(position).getCartItemShopName());
         holder.qty.setText(dataList.get(position).getCartItemQuantity());
+        String itemStatus = dataList.get(holder.getAdapterPosition()).getCartItemStatus();
+        if(itemStatus.equals("Confirm")){
+            holder.btn.setEnabled(false);
+            holder.btn.setText("Confirm");
+            holder.btn.setTextColor(Color.parseColor("#f50707"));
+
+        }
 
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,8 +67,10 @@ public class CartItemAdapter extends RecyclerView.Adapter<MyViewCart> {
             String lon = "Test";
             String cusNumber = "+94714973507";
             String cusAddress = "Kudawewa road Polpithigama";
+            String productId =dataList.get(holder.getAdapterPosition()).getpID();
+            String userID =dataList.get(holder.getAdapterPosition()).getUserID();
 
-            saveData(itemName,shopName,total,lat,lon,cusNumber,cusAddress);
+            saveData(itemName,shopName,total,lat,lon,cusNumber,cusAddress,productId,userID);
             }
         });
 
@@ -73,9 +83,9 @@ public class CartItemAdapter extends RecyclerView.Adapter<MyViewCart> {
         return dataList.size();
     }
 
-    public void saveData(String obj1,String obj2,String obj3,String obj4,String obj5,String obj6,String obj7){
+    public void saveData(String obj1,String obj2,String obj3,String obj4,String obj5,String obj6,String obj7,String obj8,String obj9){
 
-        Order_Item_Details orderDetails = new Order_Item_Details("Sandeepa",obj1,obj3,obj5,obj4,obj6,obj7);
+        Order_Item_Details orderDetails = new Order_Item_Details("Sandeepa",obj1,obj3,obj5,obj4,obj6,obj7,obj8,obj9);
         FirebaseDatabase.getInstance().getReference("OrderDetails").child(obj2).child("124578965").setValue(orderDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
