@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -31,11 +32,20 @@ public class Cart_Recycler_View extends AppCompatActivity {
     DatabaseReference databaseReference;
     ValueEventListener valueEventListener;
     CartItemAdapter adapter;
+    String lat,lon,userId,cusNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart_recycler_view);
+
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+
+        lat = extras.getString("V1");
+        lon = extras.getString("V2");
+        cusNumber = extras.getString("V3");
+        userId = extras.getString("V4");
 
         recyclerView = findViewById(R.id.CartRecyclerView);
 
@@ -47,7 +57,7 @@ public class Cart_Recycler_View extends AppCompatActivity {
         adapter = new CartItemAdapter(Cart_Recycler_View.this,dataList);
         recyclerView.setAdapter(adapter);
 
-        getCartDetails();
+         getCartDetails();
 
     }
 
@@ -78,6 +88,9 @@ public class Cart_Recycler_View extends AppCompatActivity {
                     cartItemDetails.setpID(productID);
                     cartItemDetails.setUserID(userID);
                     cartItemDetails.setCartItemStatus(itemStatus);
+                    cartItemDetails.setUserLatitude(lat);
+                    cartItemDetails.setUserLongitude(lon);
+                    cartItemDetails.setUserPhoneNumber(cusNumber);
 
                     dataList.add(cartItemDetails);
 

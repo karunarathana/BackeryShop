@@ -4,7 +4,9 @@ package com.example.backeryshop.InterFaces;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,6 +26,7 @@ public class itemDetails extends AppCompatActivity {
 
     TextView itemName,itemPrice,itemDescription,shopName;
     ImageView obj1;
+    String userId;
 
     ArrayList<String>itemData= new ArrayList<>();
     @Override
@@ -37,7 +40,9 @@ public class itemDetails extends AppCompatActivity {
         itemDescription = findViewById(R.id.itemDesc);
         shopName = findViewById(R.id.shopName);
 
-        Bundle bundle = getIntent().getExtras();
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
         if(bundle != null){
 
             itemData.add(bundle.getString("shopName"));
@@ -46,6 +51,8 @@ public class itemDetails extends AppCompatActivity {
             itemData.add(bundle.getString("Image"));
             itemData.add(bundle.getString("itemCode"));
             itemData.add(bundle.getString("userID"));
+
+
 
             itemName.setText(bundle.getString("itemName"));
             itemPrice.setText(bundle.getString("itemPrice"));
@@ -66,8 +73,10 @@ public class itemDetails extends AppCompatActivity {
         productId= itemData.get(4);
         userID = itemData.get(5);
         itemStatus ="Pending";
+        productQon ="2";
 
-        Upload_Item_Details_Cart userDetails = new Upload_Item_Details_Cart(shopName,productName,productPrice,imageUrl,productId,"2",itemStatus,userID );
+
+        Upload_Item_Details_Cart userDetails = new Upload_Item_Details_Cart(shopName,productName,productPrice,imageUrl,productId,productQon,itemStatus,userID );
         FirebaseDatabase.getInstance().getReference("CartDetails").child(userID).child(productId).setValue(userDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

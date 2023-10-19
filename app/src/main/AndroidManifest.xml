@@ -3,8 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BackeryShop"
         tools:targetApi="31">
+        <activity
+            android:name=".InterFaces.Shop_Owner_Daily_Root"
+            android:exported="false" />
+        <activity
+            android:name=".Model.Testing2"
+            android:exported="false"/>
         <activity
             android:name=".InterFaces.Order_Recycler_View"
             android:exported="false" />
@@ -29,12 +37,7 @@
             android:exported="false" />
         <activity
             android:name=".Model.Testing"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".InterFaces.Add_Product_Page"
             android:exported="false" />
@@ -43,7 +46,13 @@
             android:exported="false" />
         <activity
             android:name=".InterFaces.Shop_Login_InterFace"
-            android:exported="false"/>
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".InterFaces.ShopOwner_Sign_up"
             android:exported="false" />
@@ -52,13 +61,7 @@
             android:exported="false" />
         <activity
             android:name=".UserSign_In"
-            android:exported="false"/>
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+            android:exported="false" />
         <activity
             android:name=".SignIn"
             android:exported="false" />
@@ -71,6 +74,10 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD2gI9ZCWkRP7E2BF8cOtNBZqMCCKxLf7w" />
     </application>
 
 </manifest>

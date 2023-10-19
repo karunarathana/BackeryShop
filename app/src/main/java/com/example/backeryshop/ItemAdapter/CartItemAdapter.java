@@ -1,7 +1,9 @@
 package com.example.backeryshop.ItemAdapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,15 +27,19 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
+import java.util.Random;
 
 public class CartItemAdapter extends RecyclerView.Adapter<MyViewCart> {
     private Context context;
     private List<Cart_Item_Details> dataList;
 
+
     public CartItemAdapter(Context context, List<Cart_Item_Details> dataList) {
         this.context = context;
         this.dataList = dataList;
+
     }
+
 
     @NonNull
     @Override
@@ -60,17 +66,18 @@ public class CartItemAdapter extends RecyclerView.Adapter<MyViewCart> {
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            String itemName = dataList.get(holder.getAdapterPosition()).getCartItemName();
-            String shopName =dataList.get(holder.getAdapterPosition()).getCartItemShopName();
-            String total =dataList.get(holder.getAdapterPosition()).getCartItemPrice();
-            String lat = "Test";
-            String lon = "Test";
-            String cusNumber = "+94714973507";
-            String cusAddress = "Kudawewa road Polpithigama";
-            String productId =dataList.get(holder.getAdapterPosition()).getpID();
-            String userID =dataList.get(holder.getAdapterPosition()).getUserID();
 
-            saveData(itemName,shopName,total,lat,lon,cusNumber,cusAddress,productId,userID);
+                String itemName = dataList.get(holder.getAdapterPosition()).getCartItemName();
+                String shopName =dataList.get(holder.getAdapterPosition()).getCartItemShopName();
+                String total =dataList.get(holder.getAdapterPosition()).getCartItemPrice();
+                String cusAddress = "Kudawewa road Polpithigama";
+                String lat = dataList.get(holder.getAdapterPosition()).getUserLatitude();
+                String lon = dataList.get(holder.getAdapterPosition()).getUserLongitude();
+                String cusNumber = dataList.get(holder.getAdapterPosition()).getUserPhoneNumber();
+                String productId =dataList.get(holder.getAdapterPosition()).getpID();
+                String userID =dataList.get(holder.getAdapterPosition()).getUserID();
+
+                saveData(itemName,shopName,total,lat,lon,cusNumber,cusAddress,productId,userID);
             }
         });
 
@@ -85,8 +92,13 @@ public class CartItemAdapter extends RecyclerView.Adapter<MyViewCart> {
 
     public void saveData(String obj1,String obj2,String obj3,String obj4,String obj5,String obj6,String obj7,String obj8,String obj9){
 
+        Random rand = new Random();
+        int rand_int2 = rand.nextInt(10000000);
+
+        String code = Integer.toString(rand_int2);
+
         Order_Item_Details orderDetails = new Order_Item_Details("Sandeepa",obj1,obj3,obj5,obj4,obj6,obj7,obj8,obj9);
-        FirebaseDatabase.getInstance().getReference("OrderDetails").child(obj2).child("124578965").setValue(orderDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
+        FirebaseDatabase.getInstance().getReference("OrderDetails").child(obj2).child(code).setValue(orderDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){

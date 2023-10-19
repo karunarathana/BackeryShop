@@ -194,6 +194,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:onClick="showDailyRoute"
             android:layout_width="150dp"
             android:layout_height="150dp"
             app:cardCornerRadius="15dp"
@@ -211,13 +212,13 @@
                 <ImageView
                     android:layout_width="88dp"
                     android:layout_height="88dp"
-                    android:src="@drawable/others"
+                    android:src="@drawable/location"
                     android:layout_marginTop="10dp"
                     android:layout_gravity="center_horizontal"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Others"
+                    android:text="Daily Root"
                     android:textSize="24dp"
                     android:layout_gravity="center_horizontal"
                     android:textStyle="bold"/>

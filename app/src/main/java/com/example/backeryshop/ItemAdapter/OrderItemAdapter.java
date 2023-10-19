@@ -60,6 +60,19 @@ public class OrderItemAdapter extends RecyclerView.Adapter<MyViewOrder> {
             }
         });
 
+        holder.btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String userId = dataList.get(holder.getAdapterPosition()).getUserID();
+                String productId = dataList.get(holder.getAdapterPosition()).getProductId();
+
+                final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("CartDetails");
+                reference.child(userId).child(productId).child("itemStatus").setValue("Cansel");
+
+                Toast.makeText(context, "Ok Order Is Cansel", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
     @Override
     public int getItemCount() {
@@ -72,7 +85,7 @@ class MyViewOrder extends RecyclerView.ViewHolder{
     ImageView recImage;
     TextView name,itemName,total,qty,address,phone;
 
-    Button btn;
+    Button btn,btn2;
     public MyViewOrder(@NonNull View itemView) {
         super(itemView);
 
@@ -84,6 +97,7 @@ class MyViewOrder extends RecyclerView.ViewHolder{
         phone = itemView.findViewById(R.id.contact);
 
         btn = itemView.findViewById(R.id.btn);
+        btn2 = itemView.findViewById(R.id.btn2);
     }
 
 }

@@ -49,4 +49,9 @@ public class Shop_Owner_Main_Dashboard extends AppCompatActivity {
 //      intent.putExtras(extras);
         startActivity(intent);
     }
+
+    public void showDailyRoute(View view){
+        Intent intent = new Intent(getApplicationContext(), Shop_Owner_Daily_Root.class);
+        startActivity(intent);
+    }
 }

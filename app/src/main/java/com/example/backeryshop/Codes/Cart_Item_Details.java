@@ -10,8 +10,23 @@ public class Cart_Item_Details {
 
     private String pID;
     private String userID;
+    private String userPhoneNumber;
     private String cartItemStatus;
+    private String userLatitude;
+    private String userLongitude;
 
+
+    public String getUserLatitude() {
+        return userLatitude;
+    }
+
+    public String getUserPhoneNumber() {
+        return userPhoneNumber;
+    }
+
+    public String getUserLongitude() {
+        return userLongitude;
+    }
 
     public String getpID() {
         return pID;
@@ -83,6 +98,18 @@ public class Cart_Item_Details {
 
     public void setCartItemStatus(String cartItemStatus) {
         this.cartItemStatus = cartItemStatus;
+    }
+
+    public void setUserLatitude(String userLatitude) {
+        this.userLatitude = userLatitude;
+    }
+
+    public void setUserLongitude(String userLongitude) {
+        this.userLongitude = userLongitude;
+    }
+
+    public void setUserPhoneNumber(String userPhoneNumber) {
+        this.userPhoneNumber = userPhoneNumber;
     }
 
     public Cart_Item_Details(){

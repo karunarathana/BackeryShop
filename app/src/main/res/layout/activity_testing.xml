@@ -6,22 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".Model.Testing">
 
+   <fragment
+       android:id="@+id/map"
+       android:name="com.google.android.gms.maps.SupportMapFragment"
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/_200sdp"
+       android:layout_centerVertical="true"
+       />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="25dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
+   <TextView
+       android:id="@+id/text"
+       android:textSize="24dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="@dimen/_10sdp"
+       android:text="OutPut"
+       />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        android:onClick="change"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_15sdp"/>
 </RelativeLayout>
